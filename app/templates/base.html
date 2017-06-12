@@ -38,13 +38,27 @@
 	    </div>
     </header>
 
-    {% block blog_body -%}
-    {%- endblock blog_body %}
+    {% block home_page_content -%}
+    {%- endblock home_page_content %}
 
-    <footer>
+    {% block edit_page_content -%}
+    {%- endblock edit_page_content %}
+
+    {% block post_page_content -%}
+    {%- endblock post_page_content %}
+
+    <footer class="page-bottom">
     	<div class="container">
-    		-- copyright
+            <div>
+                <hr />
+                <p class="text-center">Copyright © zhiweiX 2017. All rights reserved.</p>
+            </div>
     	</div>
     </footer>
     {{ super() }}
 {%- endblock body %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock scripts %}

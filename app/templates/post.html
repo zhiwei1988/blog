@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block post_page_content -%}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			{{ article.body_html | safe }}
+		</div>
+	</div>
+</div>
+{%- endblock post_page_content %}
