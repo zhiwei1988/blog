@@ -9,7 +9,7 @@
 <div class="container" id="edit-page-content">
 	<div class="row">
 		<div class="col-md-12">
-			<form role="form" action="{{ url_for('main.edit_blog') }}" method="post">
+			<form role="form" action="{{ url_for('main.modify_blog', id=id) }}" method="post">
 				{{ form.hidden_tag() }}
 				<div class="form-group"> {# class form-group 用于增加表单项间的间距 #}
 					{{ form.title(class='form-control') }} {# class form-control 使表单元素成为块元素 #}
@@ -21,6 +21,7 @@
 					{{ form.submit(class='btn btn-primary') }}
 				</div>
 			</form>
+			
 		</div>
 	</div>
 </div>

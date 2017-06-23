@@ -1,18 +1,30 @@
 {% extends "base.html" %}
 
 {% block home_page_content -%}
-	<div id="body" class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+	<section id="posts" class="container posts-expand">
+		{% for post in posts %}
+		<div class="row post">
+			<div class="col-md-2 col-sm-2 col-xs-2"></div>
+			<div class="col-md-8 col-sm-8 col-xs-8">
 				<article>
-					{% for post in posts %}
 					<h2><a href="{{ url_for('main.get_article', id=post.id, _external=True) }}">{{ post.title }}</a></h2>
 					<div class="post-meta">
 						<span class="glyphicon glyphicon-calendar"></span> 发表于 {{ moment(post.timestamp).format("YYYY-MM-DD") }}
 					</div>
-					{% endfor %}
+					{% if current_user.is_authenticated %}
+					<div>
+						<a href="{{ url_for('main.modify_blog', id=post.id, _external=True) }}">
+							<span class="label label-primary">Modify</span>
+						</a>
+						<a href="{{ url_for('main.delete_blog', id=post.id, _external=True) }}">
+							<span class="label label-danger">Delete</span>
+						</a>
+					</div>
+					{% endif %}
 				</article>
 			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2"></div>
 		</div>
-	</div>
+		{% endfor %}
+	</section>
 {%- endblock home_page_content %}

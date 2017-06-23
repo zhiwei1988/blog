@@ -8,14 +8,23 @@ body {
     }
 }
 
-footer {
-	margin: 10px 0;
+#edit-page-content {
+	padding-bottom: 60px
 }
 
-/*.page-bottom {
-	position: absolute;
-	bottom: 0px;
-}*/
+#post-page-content {
+	padding-bottom: 60px
+}
+
+footer p {
+	text-align: center;
+}
+
+footer div.container {
+	padding: 0px;
+	margin: 0px;
+	width: auto;
+}
 
 .text-center {
 	text-align: center;
@@ -26,4 +35,13 @@ footer {
 	margin-bottom: 20px;
 	text-align: left;
 	font-size: 12px;
+}
+
+section.posts-expand .post {
+	margin-top: 80px;
+}
+
+/* 文章列表中的第一个条目去掉外边距 */
+section.posts-expand .post:first-child {
+	margin-top: 0px;
 }
