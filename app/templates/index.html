@@ -26,5 +26,13 @@
 			<div class="col-md-2 col-sm-2 col-xs-2"></div>
 		</div>
 		{% endfor %}
+		{% if current_user.is_authenticated %}
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-10">
+				<a id="new-post" href="{{ url_for('main.edit_blog') }}" class="btn btn-primary" role="button">New Post</a>
+			</div>
+		</div>
+		{% endif %}
 	</section>
 {%- endblock home_page_content %}

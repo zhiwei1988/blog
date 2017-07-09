@@ -45,3 +45,7 @@ section.posts-expand .post {
 section.posts-expand .post:first-child {
 	margin-top: 0px;
 }
+
+#new-post {
+	margin-top: 20px;
+}

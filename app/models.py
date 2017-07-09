@@ -15,6 +15,12 @@ class Post(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     body = db.Column(db.Text)
     body_html = db.Column(db.Text)
+    category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))  # 定义外键，这一列的值是categorys表中行的id值
+
+    def __init__(self, **kwargs):
+        super(Post, self).__init__(**kwargs)
+        if self.category is None:
+            self.category = Category.query.filter_by(name='None').first()
 
     @staticmethod
     def on_changed_body(target, value, oldvalue, initiator):
@@ -23,6 +29,13 @@ class Post(db.Model):
                         'h1', 'h2', 'h3', 'p']
         target.body_html = bleach.linkify(bleach.clean(markdown(value, output_format='html'),
                                                        tags=allowed_tags, strip=True))
+
+    @staticmethod
+    def add_category():
+        posts = Post.query.all()
+        for post in posts:
+            if post.category is None:
+                post.category = Category.query.filter_by(name='None').first()
 
 
 db.event.listen(Post.body, 'set', Post.on_changed_body)
@@ -61,3 +74,8 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+class Category(db.Model):
+    __tablename__ = 'categorys'
+    id = db.Column(db.Integer, index=True, primary_key=True)
+    name = db.Column(db.String, unique=True)
+    posts = db.relationship('Post', backref='category')  # 向Post中添加category属性，定义反向关系

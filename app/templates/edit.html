@@ -2,6 +2,7 @@
 {%- block styles %}
     {{ super() }}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.css">
 {%- endblock styles %}
 
 {% block edit_page_content -%}
@@ -9,6 +10,21 @@
 <div class="container" id="edit-page-content">
 	<div class="row">
 		<div class="col-md-12">
+			<div class="demo">
+				<div class="control-group">
+					<label for="input-tags">Tags:</label>
+					<input type="text" id="input-tags" class="demo-default" value="awesome,neat">
+				</div>
+				<script>
+				$(function() {
+					$('#input-tags').selectize({
+					persist: false,
+					createOnBlur: true,
+					create: true
+					});
+				});
+				</script>
+			</div>
 			<form role="form" action="{{ url_for('main.edit_blog') }}" method="post">
 				{{ form.hidden_tag() }}
 				<div class="form-group"> {# class form-group 用于增加表单项间的间距 #}
@@ -29,6 +45,7 @@
 {% block scripts %}
 {{ super() }}
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js"></script>
 <script>
 	new SimpleMDE({
 		element: document.getElementById("body")
