@@ -2,7 +2,7 @@
 {%- block styles %}
     {{ super() }}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.css">
+    <link href="{{ url_for('static', filename='css/open-source/selectize.default.css') }}" rel="stylesheet" type="text/css">
 {%- endblock styles %}
 
 {% block edit_page_content -%}
@@ -10,25 +10,17 @@
 <div class="container" id="edit-page-content">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="demo">
-				<div class="control-group">
-					<label for="input-tags">Tags:</label>
-					<input type="text" id="input-tags" class="demo-default" value="awesome,neat">
-				</div>
-				<script>
-				$(function() {
-					$('#input-tags').selectize({
-					persist: false,
-					createOnBlur: true,
-					create: true
-					});
-				});
-				</script>
-			</div>
 			<form role="form" action="{{ url_for('main.edit_blog') }}" method="post">
 				{{ form.hidden_tag() }}
 				<div class="form-group"> {# class form-group 用于增加表单项间的间距 #}
-					{{ form.title(class='form-control') }} {# class form-control 使表单元素成为块元素 #}
+					<label for="input-title">Title:</label>
+					{{ form.title(class='form-control', id='input-title') }} {# class form-control 使表单元素成为块元素 #}
+				</div>
+				<div class="form-group">
+					<label for="input-tags">Tags:</label>
+					<input type="text" id="input-tags">
+					<label for="input-category">Category:</label>
+					<input type="text" id="input-category">
 				</div>
 				<div class="form-group">
 					{{ form.body(class='form-control', id='body') }}
@@ -44,8 +36,22 @@
 
 {% block scripts %}
 {{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/selectize.js') }}"></script>
+<script>
+	$(function() {
+		$('#input-tags').selectize({
+			persist: false,
+			createOnBlur: true,
+			create: true
+		});
+		$('#input-category').selectize({
+			persist: false,
+			createOnBlur: true,
+			create: true
+		});
+	});
+</script>
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js"></script>
 <script>
 	new SimpleMDE({
 		element: document.getElementById("body")
