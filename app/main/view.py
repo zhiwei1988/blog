@@ -4,7 +4,7 @@ from flask import render_template, redirect, url_for
 from flask_login import login_required
 from .forms import PostForm
 from . import main
-from ..models import Post
+from ..models import Post, Category
 from .. import db
 
 
@@ -14,12 +14,38 @@ def index():
     return render_template('index.html', posts=posts)
 
 
+@main.route('/category/fa')
+def category_fa():
+    category = Category.query.filter_by(name=u'法').first()
+    posts = category.posts
+    return render_template('index.html', posts=posts)
+
+
+@main.route('/category/dao')
+def category_dao():
+    category = Category.query.filter_by(name=u'道').first()
+    posts = category.posts
+    return render_template('index.html', posts=posts)
+
+
+@main.route('/category/shu')
+def category_shu():
+    category = Category.query.filter_by(name=u'术').first()
+    posts = category.posts
+    return render_template('index.html', posts=posts)
+
+
 @main.route('/edit', methods=['Get', 'Post'])
 @login_required
 def edit_blog():
     form = PostForm()
     if form.validate_on_submit():
         post = Post(body=form.body.data, title=form.title.data)
+        category = Category.query.filter_by(name=form.category.data).first()
+        if not category:
+            category = Category(name=form.category.data)
+            db.session.add(category)
+        post.category = category
         db.session.add(post)
         return redirect(url_for('.index'))
     return render_template('edit.html', form=form)

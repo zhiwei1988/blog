@@ -37,6 +37,14 @@ footer div.container {
 	font-size: 12px;
 }
 
+.post-meta-divider {
+	margin: 0 0.5em;
+}
+
+.post-meta-item-text {
+	margin-left: 0.5em;
+}
+
 section.posts-expand .post {
 	margin-top: 80px;
 }
@@ -48,4 +56,8 @@ section.posts-expand .post:first-child {
 
 #new-post {
 	margin-top: 20px;
+}
+
+label#tags, label#category {
+	display: inline;
 }

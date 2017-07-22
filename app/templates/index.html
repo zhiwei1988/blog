@@ -9,7 +9,15 @@
 				<article>
 					<h2><a href="{{ url_for('main.get_article', id=post.id, _external=True) }}">{{ post.title }}</a></h2>
 					<div class="post-meta">
-						<span class="glyphicon glyphicon-calendar"></span> 发表于 {{ moment(post.timestamp).format("YYYY-MM-DD") }}
+						<span class="glyphicon glyphicon-calendar"></span> 
+						<span class="post-meta-item-text">发表于</span> 
+						{{ moment(post.timestamp).format("YYYY-MM-DD") }}
+						<span class="post-meta-divider">|</span>
+						<span class="glyphicon glyphicon-folder-open"></span>
+						<span class="post-meta-item-text">分类于</span>
+						<span class="post-meta-category">
+							<a href="#">{{ post.category.name }}</a>
+						</span>
 					</div>
 					{% if current_user.is_authenticated %}
 					<div>
