@@ -17,22 +17,31 @@ def index():
 @main.route('/category/fa')
 def category_fa():
     category = Category.query.filter_by(name=u'法').first()
-    posts = category.posts
-    return render_template('index.html', posts=posts)
+    if category:
+        posts = category.posts
+        return render_template('index.html', posts=posts)
+
+    return redirect(url_for('.index'))
 
 
 @main.route('/category/dao')
 def category_dao():
     category = Category.query.filter_by(name=u'道').first()
-    posts = category.posts
-    return render_template('index.html', posts=posts)
+    if category:
+        posts = category.posts
+        return render_template('index.html', posts=posts)
+
+    return redirect(url_for('.index'))
 
 
 @main.route('/category/shu')
 def category_shu():
     category = Category.query.filter_by(name=u'术').first()
-    posts = category.posts
-    return render_template('index.html', posts=posts)
+    if category:
+        posts = category.posts
+        return render_template('index.html', posts=posts)
+
+    return redirect(url_for('.index'))
 
 
 @main.route('/edit', methods=['Get', 'Post'])
