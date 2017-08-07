@@ -24,7 +24,7 @@
 						<a href="{{ url_for('main.modify_blog', id=post.id, _external=True) }}">
 							<span class="label label-primary">Modify</span>
 						</a>
-						<a href="{{ url_for('main.delete_blog', id=post.id, _external=True) }}">
+						<a href="{{ url_for('main.delete_blog', id=post.id, _external=True) }}" class="deleteBlog">
 							<span class="label label-danger">Delete</span>
 						</a>
 					</div>

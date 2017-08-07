@@ -14,7 +14,7 @@ class Post(db.Model):
     title = db.Column(db.String, index=True, unique=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     body = db.Column(db.Text)
-    body_html = db.Column(db.Text)
+    # body_html = db.Column(db.Text)
     category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))  # 定义外键，这一列的值是categorys表中行的id值
 
     def __init__(self, **kwargs):
@@ -22,13 +22,13 @@ class Post(db.Model):
         if self.category is None:
             self.category = Category.query.filter_by(name='None').first()
 
-    @staticmethod
-    def on_changed_body(target, value, oldvalue, initiator):
-        allowed_tags = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code',
-                        'em', 'i', 'li', 'ol', 'pre', 'strong', 'ul',
-                        'h1', 'h2', 'h3', 'p']
-        target.body_html = bleach.linkify(bleach.clean(markdown(value, output_format='html'),
-                                                       tags=allowed_tags, strip=True))
+    # @staticmethod
+    # def on_changed_body(target, value, oldvalue, initiator):
+    #     allowed_tags = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code',
+    #                     'em', 'i', 'li', 'ol', 'pre', 'strong', 'ul',
+    #                     'h1', 'h2', 'h3', 'p']
+    #     target.body_html = bleach.linkify(bleach.clean(markdown(value, output_format='html'),
+    #                                                    tags=allowed_tags, strip=True))
 
     @staticmethod
     def add_category():
@@ -38,7 +38,7 @@ class Post(db.Model):
                 post.category = Category.query.filter_by(name='None').first()
 
 
-db.event.listen(Post.body, 'set', Post.on_changed_body)
+# db.event.listen(Post.body, 'set', Post.on_changed_body)
 
 
 class User(UserMixin, db.Model):

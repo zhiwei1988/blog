@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
+{%- block styles %}
+    {{ super() }}
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> -->
+    <!-- <link href="{{ url_for('static', filename='css/open-source/swiss.css') }}" rel="stylesheet" type="text/css"> -->
+{%- endblock styles %}
+
 {% block post_page_content -%}
 <div class="container" id="post-page-content">
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			{{ article.body_html | safe }}
+			{{ article.body | safe }}
 		</div>
 		<div class="col-md-2"></div>
 	</div>

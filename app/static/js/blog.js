@@ -9,5 +9,19 @@ $(
 		} else {
 			$("#li-index").addClass("active");
 		}
+
+		$(document).on("click", ".deleteBlog", function (event) {
+			event.preventDefault();
+			var $target = $(this);
+			bootbox.confirm({ 
+  				size: "small",
+  				message: "Are you sure?", 
+  				callback: function(result){ 
+  					if (result) {
+  						window.location.href = $target.attr("href")
+  					}
+  				}
+			});
+		});
 	}
 )
