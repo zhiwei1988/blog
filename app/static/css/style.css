@@ -6,6 +6,48 @@ body {
     .group2 {
         text-align: right;
     }
+
+    .navbarWrap  {
+    	width: 750px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    	margin: auto;
+	}
+}
+
+#blogFooter {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #333;
+	text-align: center;
+}
+
+#blogFooter p {
+	margin-top: 10px;
+}
+
+#contentWrap {
+	width: 700px;
+	margin: 15px auto;
+	margin-bottom: 60px;
+	padding: 30px;
+	border: 1px solid;
+	border-radius: 3px;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+#contentWrap h3 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 16px;
+	font-weight: 700;
+	color: #333;
 }
 
 #edit-page-content {
@@ -14,10 +56,6 @@ body {
 
 #post-page-content {
 	padding-bottom: 60px
-}
-
-footer p {
-	text-align: center;
 }
 
 footer div.container {

@@ -2,18 +2,26 @@
 
 {%- block styles %}
     {{ super() }}
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> -->
-    <!-- <link href="{{ url_for('static', filename='css/open-source/swiss.css') }}" rel="stylesheet" type="text/css"> -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
 {%- endblock styles %}
 
 {% block post_page_content -%}
-<div class="container" id="post-page-content">
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			{{ article.body | safe }}
+<main id="main" class="main">
+	<div class="main-inner">
+		<div class="content-wrap">
+			<div id="content" class="content">
+				<div id="posts" class="posts-expand">
+					<article class="post post-type-normal">
+						<header class="post-header">
+							<h2 class="post-title">{{ article.title }}</h2>
+						</header>
+						<div class="post-body">
+							{{ article.body | safe }}
+						</div>
+					</article>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
-</div>
+</main>
 {%- endblock post_page_content %}

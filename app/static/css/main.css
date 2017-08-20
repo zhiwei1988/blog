@@ -1,0 +1,60 @@
+body {
+  position: relative;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+.posts-expand .post-body h2,
+.posts-expand .post-body h3,
+.posts-expand .post-body h4,
+.posts-expand .post-body h5,
+.posts-expand .post-body h6 {
+  padding-top: 10px;
+}
+
+.main {
+  padding-bottom: 150px;
+}
+
+.main-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+
+.main-inner {
+  margin-top: 110px;
+}
+
+.post-title {
+	position: relative;
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 30px;
+}
