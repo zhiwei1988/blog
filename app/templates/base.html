@@ -4,14 +4,30 @@
     {{ super() }}
     <link href="{{bootstrap_find_resource('css/bootstrap-theme.css', cdn='bootstrap')}}" rel="stylesheet" media="screen">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
 {%- endblock styles %}
 
 {% block title %}zhiwei's blog{% endblock %}
 
 {% block body -%}
     {{ super() }}
-    <header id="blogHeader" class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-	    <div class="navbarWrap">
+    <header id="header" class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+	    <div class="header-inner">
+            <div class="site-brand-wrapper">
+                <div class="site-meta">
+                    <div class="custom-logo-site-title">
+                        <a href="{{ url_for('main.index') }}" class="brand" rel="start">
+                            <span class="logo-line-before">
+                                <i style="transform: translateX(100%);"></i>
+                            </span>
+                            <span class="site-title" style="opacity: 1; top: 0px">谭智伟</span>
+                            <span class="logo-line-after">
+                                <i style="transform: translateX(-100%);"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -19,7 +35,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{ url_for('main.index') }}" class="navbar-brand">zhiweiX</a>
             </div>
 	    	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">

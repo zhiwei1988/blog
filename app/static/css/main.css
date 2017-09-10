@@ -38,7 +38,14 @@ h4 {
   padding-top: 10px;
 }
 
+.header-inner {
+  width: 700px;
+  /*padding: 25px 0 20px;*/
+  margin: 0 auto;
+}
+
 .main {
+  padding-top: 85px;
   padding-bottom: 150px;
 }
 
@@ -48,7 +55,7 @@ h4 {
 }
 
 .main-inner {
-  margin-top: 110px;
+  /*margin-top: 75px;*/
 }
 
 .post-title {
@@ -57,4 +64,89 @@ h4 {
 	font-weight: 400;
 	text-align: center;
 	margin-bottom: 30px;
+}
+
+#new-post {
+  margin-top: 80px;
+}
+
+a.brand {
+  padding: 0;
+}
+
+a.brand img {
+  width: 58px;
+  height: 50px;
+}
+
+.site-meta {
+  text-align: left;
+  float: left;
+  margin-left: -20px;
+  line-height: normal;
+}
+
+.brand {
+  position: relative;
+  display: inline-block;
+  padding: 0 40px;
+  color: #fff;
+  background: #222;
+  border-bottom: none;
+}
+
+.site-meta .brand {
+  padding: 2px 1px;
+  background: none;
+}
+
+.site-title {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 36px;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.site-meta .custom-logo-site-title {
+  padding: 5px 0px;
+}
+
+.site-meta .site-title {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.logo-line-before, .logo-line-after {
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.logo-line-before i, .logo-line-after i {
+  position: relative;
+  display: block;
+  height: 2px;
+  background: #fff;
+}
+
+.logo-line-before i {
+  left: -100%;
+}
+
+.logo-line-after i {
+  right: -100%;
+}
+
+#login {
+  width: 360px;
+  margin: 0 auto;
+}
+
+#edit {
+  margin-left: -50px;
+  margin-right: auto;
+  width: 700px;
 }
