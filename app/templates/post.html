@@ -1,27 +1,41 @@
 {% extends "base.html" %}
 
 {%- block styles %}
-    {{ super() }}
-    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
+{{ super() }}
+<link href="{{ url_for('static', filename='css/sidenav.css') }}" rel="stylesheet" type="text/css">
 {%- endblock styles %}
 
 {% block post_page_content -%}
-<main id="main" class="main">
-	<div class="main-inner">
-		<div class="content-wrap">
-			<div id="content" class="content">
-				<div id="posts" class="posts-expand">
-					<article class="post post-type-normal">
-						<header class="post-header">
-							<h2 class="post-title">{{ article.title }}</h2>
-						</header>
-						<div class="post-body">
-							{{ article.body | safe }}
-						</div>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
-</main>
+<div class="container">
+  <div id="blog-post" class="row" >
+    <main class="col-md-9">
+    <div class="main-inner">
+      <div class="content-wrap">
+        <div id="content" class="content">
+          <div id="posts" class="posts-expand">
+            <article class="post post-type-normal">
+              <header class="post-header">
+                <h2 class="post-title">{{ article.title }}</h2>
+              </header>
+              <div id="post-body">
+                {{ article.body | safe }}
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <aside class="col-md-3">
+      <nav id="toc" class="bs-docs-sidebar hidden-print hidden-sm hidden-xs" data-spy="affix">
+      </nav>
+    </aside>
+  </div>
+</div>
 {%- endblock post_page_content %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}

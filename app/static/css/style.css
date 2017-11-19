@@ -16,10 +16,9 @@ body {
 }
 
 #blogFooter {
-	position: fixed;
-	bottom: 0;
 	width: 100%;
-	margin: 0 auto;
+  margin-top: 100px;
+	padding: 20px;
 	color: #fff;
 	background-color: #333;
 	text-align: center;
