@@ -6,6 +6,7 @@ from .forms import PostForm
 from . import main
 from ..models import Post, Category
 from .. import db
+from markdown import markdown
 
 
 @main.route('/')
@@ -86,4 +87,5 @@ def delete_blog(id):
 @main.route('/archive/<int:id>')
 def get_article(id):
     article = Post.query.get_or_404(id)
+    article.body_html = markdown(article.body, output_format='html')
     return render_template('post.html', article=article)

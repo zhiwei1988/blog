@@ -14,8 +14,9 @@ class Post(db.Model):
     title = db.Column(db.String, index=True, unique=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     body = db.Column(db.Text)
-    # body_html = db.Column(db.Text)
     category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))  # 定义外键，这一列的值是categorys表中行的id值
+
+    body_html = ""
 
     def __init__(self, **kwargs):
         super(Post, self).__init__(**kwargs)

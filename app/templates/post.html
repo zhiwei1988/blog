@@ -18,7 +18,7 @@
                 <h2 class="post-title">{{ article.title }}</h2>
               </header>
               <div id="post-body">
-                {{ article.body | safe }}
+                {{ article.body_html | safe }}
               </div>
             </article>
           </div>
@@ -36,6 +36,6 @@
 
 {% block scripts %}
 {{ super() }}
-<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
 {% endblock %}
