@@ -55,8 +55,10 @@ def edit_blog():
         if not category:
             category = Category(name=form.category.data)
             db.session.add(category)
+            db.session.commit()
         post.category = category
         db.session.add(post)
+        db.session.commit()
         return redirect(url_for('.index'))
     return render_template('edit.html', form=form)
 
