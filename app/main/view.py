@@ -44,6 +44,15 @@ def category_shu():
 
     return redirect(url_for('.index'))
 
+@main.route('/category/qi')
+def category_qi():
+    category = Category.query.filter_by(name=u'器').first()
+    if category:
+        posts = category.posts
+        return render_template('index.html', posts=posts)
+
+    return redirect(url_for('.index'))
+
 
 @main.route('/edit', methods=['Get', 'Post'])
 @login_required
@@ -72,6 +81,7 @@ def modify_blog(id):
         post.title = form.title.data
         post.body = form.body.data
         db.session.add(post)
+        db.session.commit()
         return redirect(url_for('.index'))
     form.body.data = post.body
     form.title.data = post.title
@@ -83,6 +93,7 @@ def modify_blog(id):
 def delete_blog(id):
     post = Post.query.get_or_404(id)
     db.session.delete(post)
+    db.session.commit()
     return redirect(url_for('.index'))
 
 
