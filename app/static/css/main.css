@@ -151,4 +151,8 @@ a.brand img {
   width: 700px;
 }
 
+#post-body img {
+  max-width: 100%;
+}
+
 

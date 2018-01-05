@@ -85,6 +85,7 @@ def modify_blog(id):
         return redirect(url_for('.index'))
     form.body.data = post.body
     form.title.data = post.title
+    form.category.data = post.category.name
     return render_template('modify.html', form=form, id=id)
 
 
