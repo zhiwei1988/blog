@@ -1,23 +1,16 @@
 {% extends "base.html" %}
 
 {% block login_page_content -%}
-<main id="main" class="main">
-	<div class="main-inner">
-		<div class="content-wrap">
-			<div id="content" class="content">
-				<div id="login">
-					<form class="form-signin" action="{{ url_for('auth.login') }}" method="post">
-					{{ form.hidden_tag() }}
-					{{ form.email(class="form-group form-control", placeholder="Email address") }}
-					{{ form.password(class="form-group form-control", placeholder="Password") }}
-					<div class="form-group">
-						{{ form.remember_me }} {{ form.remember_me.label }}
-					</div>
-					{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
-					</form>
-				</div>
+<div class="container">
+	<div id="login" class="sign-in">
+		<form class="form-signin" action="{{ url_for('auth.login') }}" method="post">
+			{{ form.hidden_tag() }} {{ form.email(class="form-group form-control", placeholder="Email address") }} {{ form.password(class="form-group
+			form-control", placeholder="Password") }}
+			<div class="form-group">
+				{{ form.remember_me }} {{ form.remember_me.label }}
 			</div>
-		</div>
+			{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+		</form>
 	</div>
-</main>
+</div>
 {%- endblock login_page_content %}
