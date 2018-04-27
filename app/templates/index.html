@@ -11,12 +11,12 @@
 				<span class="glyphicon glyphicon-calendar"></span>
 				<span class="post-meta-item-text">发表于</span>
 				{{ moment(post.timestamp).format("YYYY-MM-DD") }}
-				<span class="post-meta-divider">|</span>
+				<!-- <span class="post-meta-divider">|</span>
 				<span class="glyphicon glyphicon-folder-open"></span>
 				<span class="post-meta-item-text">分类于</span>
 				<span class="post-meta-category">
 					<a href="#">{{ post.category.name }}</a>
-				</span>
+				</span> -->
 			</div>
 			{% if current_user.is_authenticated %}
 			<div>

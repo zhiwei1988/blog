@@ -15,9 +15,9 @@ def index():
     return render_template('index.html', posts=posts)
 
 
-@main.route('/category/fa')
-def category_fa():
-    category = Category.query.filter_by(name=u'法').first()
+@main.route('/category/coding')
+def category_coding():
+    category = Category.query.filter_by(name=u'Coding').first()
     if category:
         posts = category.posts
         return render_template('index.html', posts=posts)
@@ -25,9 +25,9 @@ def category_fa():
     return redirect(url_for('.index'))
 
 
-@main.route('/category/dao')
-def category_dao():
-    category = Category.query.filter_by(name=u'道').first()
+@main.route('/category/productivity')
+def category_productivity():
+    category = Category.query.filter_by(name=u'Productivity').first()
     if category:
         posts = category.posts
         return render_template('index.html', posts=posts)
@@ -35,18 +35,18 @@ def category_dao():
     return redirect(url_for('.index'))
 
 
-@main.route('/category/shu')
-def category_shu():
-    category = Category.query.filter_by(name=u'术').first()
+@main.route('/category/life')
+def category_life():
+    category = Category.query.filter_by(name=u'Life').first()
     if category:
         posts = category.posts
         return render_template('index.html', posts=posts)
 
     return redirect(url_for('.index'))
 
-@main.route('/category/qi')
-def category_qi():
-    category = Category.query.filter_by(name=u'器').first()
+@main.route('/category/study')
+def category_study():
+    category = Category.query.filter_by(name=u'Study').first()
     if category:
         posts = category.posts
         return render_template('index.html', posts=posts)
@@ -80,6 +80,12 @@ def modify_blog(id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
+        category = Category.query.filter_by(name=form.category.data).first()
+        if not category:
+            category = Category(name=form.category.data)
+            db.session.add(category)
+            db.session.commit()
+        post.category = category
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('.index'))

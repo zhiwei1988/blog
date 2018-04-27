@@ -29,19 +29,19 @@
                 <nav id="bs-navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li id="li-dao">
-                            <a href="{{ url_for('main.category_dao') }}">编程</a>
+                            <a href="{{ url_for('main.category_coding') }}">Coding</a>
                         </li>
                         <li id="li-fa">
-                            <a href="{{ url_for('main.category_fa') }}">效率</a>
+                            <a href="{{ url_for('main.category_productivity') }}">Productivity</a>
                         </li>
                         <li id="li-shu">
-                            <a href="{{ url_for('main.category_shu') }}">生活</a>
+                            <a href="{{ url_for('main.category_life') }}">Life</a>
                         </li>
                         <li id="li-shu">
-                            <a href="{{ url_for('main.category_qi') }}">学习</a>
+                            <a href="{{ url_for('main.category_study') }}">Study</a>
                         </li>
                         <li id="li-guanyu">
-                            <a href="#">关于</a>
+                            <a href="#">About Me</a>
                         </li>
                         {% if current_user.is_authenticated %}
                         <li>
