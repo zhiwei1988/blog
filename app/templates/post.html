@@ -7,25 +7,15 @@
 
 {% block post_page_content -%}
 <div class="container">
-  <div id="blog-post" class="row" >
-    <main class="col-md-9">
-    <div class="main-inner">
-      <div class="content-wrap">
-        <div id="content" class="content">
-          <div id="posts" class="posts-expand">
-            <article class="post post-type-normal">
-              <header class="post-header">
-                <h2 class="post-title">{{ article.title }}</h2>
-              </header>
-              <div id="post-body">
-                {{ article.body_html | safe }}
-              </div>
-            </article>
-          </div>
-        </div>
+  <div class="row" >
+    <article class="col-md-9">
+      <header class="post-header">
+        <h2 class="post-title">{{ article.title }}</h2>
+      </header>
+      <div id="post-body">
+        {{ article.body_html | safe }}
       </div>
-    </div>
-    </main>
+    </article>
     <aside class="col-md-3">
       <nav id="toc" class="bs-docs-sidebar hidden-print hidden-sm hidden-xs" data-spy="affix">
       </nav>

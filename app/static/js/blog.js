@@ -23,5 +23,7 @@ $(
   				}
 			});
 		});
+
+		$("img").addClass("img-responsive");
 	}
 )
