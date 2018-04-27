@@ -1,3 +1,7 @@
+a {
+  color: #555;
+}
+
 h2 {
   font-size: 18px;
 }
@@ -31,7 +35,7 @@ h4, h5, h6 {
   background-color: #563d7c;
 }
 
-.post {
+.posts-expand .post {
   margin-bottom: 40px;
 }
 
@@ -47,4 +51,47 @@ h4, h5, h6 {
 .post-meta {
   font-size: 12px;
   text-align: center;
+}
+
+@media (min-width: 992px) {
+  .navbar > .container .navbar-brand {
+    margin-left: -45px;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  #bs-navbar {
+    margin-top: 6px;
+    padding-left: 200px;
+  }
+
+  .container {
+    width: 700px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .posts-expand {
+    margin-top: 80px;
+  }
+
+  .posts-expand .post {
+    margin-top: 120px;
+  }
+
+  .posts-expand .post:first-child {
+    margin-top: 0;
+  }
+
+  .post-title {
+    text-align: left;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .post-meta {
+    text-align: left;
+  }
 }
