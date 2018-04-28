@@ -14,6 +14,9 @@ def index():
     posts = Post.query.order_by(Post.timestamp.desc()).all()
     return render_template('index.html', posts=posts)
 
+@main.route('/about')
+def about():
+    return render_template('about.html')
 
 @main.route('/category/coding')
 def category_coding():
@@ -22,8 +25,7 @@ def category_coding():
         posts = category.posts
         return render_template('index.html', posts=posts)
 
-    return redirect(url_for('.index'))
-
+    return render_template('default.html')
 
 @main.route('/category/productivity')
 def category_productivity():
@@ -32,8 +34,7 @@ def category_productivity():
         posts = category.posts
         return render_template('index.html', posts=posts)
 
-    return redirect(url_for('.index'))
-
+    return render_template('default.html')
 
 @main.route('/category/life')
 def category_life():
@@ -42,7 +43,7 @@ def category_life():
         posts = category.posts
         return render_template('index.html', posts=posts)
 
-    return redirect(url_for('.index'))
+    return render_template('default.html')
 
 @main.route('/category/study')
 def category_study():
@@ -51,8 +52,7 @@ def category_study():
         posts = category.posts
         return render_template('index.html', posts=posts)
 
-    return redirect(url_for('.index'))
-
+    return render_template('default.html')
 
 @main.route('/edit', methods=['Get', 'Post'])
 @login_required

@@ -41,7 +41,7 @@
                             <a href="{{ url_for('main.category_study') }}">Study</a>
                         </li>
                         <li id="li-guanyu">
-                            <a href="#">About Me</a>
+                            <a href="{{ url_for('main.about') }}">About Me</a>
                         </li>
                         {% if current_user.is_authenticated %}
                         <li>
