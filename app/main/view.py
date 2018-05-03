@@ -7,6 +7,9 @@ from . import main
 from ..models import Post, Category
 from .. import db
 from markdown import markdown
+from markdown.extensions.fenced_code import FencedCodeExtension
+from markdown.extensions.tables import TableExtension
+from markdown.extensions.codehilite import CodeHiliteExtension
 
 
 @main.route('/')
@@ -107,5 +110,7 @@ def delete_blog(id):
 @main.route('/archive/<int:id>')
 def get_article(id):
     article = Post.query.get_or_404(id)
-    article.body_html = markdown(article.body, output_format='html')
+    article.body_html = markdown(article.body,
+                                 extensions=[FencedCodeExtension(), TableExtension()],
+                                 output_format='html')
     return render_template('post.html', article=article)
