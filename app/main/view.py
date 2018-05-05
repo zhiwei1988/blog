@@ -96,7 +96,7 @@ def modify_blog(id):
     form.body.data = post.body
     form.title.data = post.title
     form.category.data = post.category.name
-    form.summary.data = post.summary.name
+    form.summary.data = post.summary
     return render_template('modify.html', form=form, id=id)
 
 
