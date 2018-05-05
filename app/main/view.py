@@ -62,7 +62,7 @@ def category_study():
 def edit_blog():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.body.data, title=form.title.data)
+        post = Post(body=form.body.data, title=form.title.data, summary=form.summary.data)
         category = Category.query.filter_by(name=form.category.data).first()
         if not category:
             category = Category(name=form.category.data)

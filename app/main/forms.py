@@ -10,4 +10,5 @@ class PostForm(FlaskForm):
     #tags = StringField(validators=[InputRequired()])
     category = StringField(validators=[InputRequired()])
     body = TextAreaField(validators=[InputRequired()])
+    summary = TextAreaField(validators=[InputRequired()])
     submit = SubmitField("Submit")
