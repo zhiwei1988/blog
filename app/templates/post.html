@@ -13,6 +13,8 @@
         <h2 class="post-title">{{ article.title }}</h2>
       </header>
       <div id="post-body">
+        <p>{{ article.summary }}</p>
+        <hr>
         {{ article.body_html | safe }}
       </div>
     </article>

@@ -14,6 +14,18 @@ h4, h5, h6 {
   font-size: 14px;
 }
 
+p {
+  margin: 0 0 25px;
+}
+
+hr {
+  margin: 20px 0;
+  height: 2px;
+  border: none;
+  background-color: #ddd;
+  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
+}
+
 blockquote p {
   font-size: 14px;
 }
@@ -78,6 +90,7 @@ table tr td {
 
 .post-detail .post-title {
   text-align: center;
+  margin-bottom: 60px;
 }
 
 .post-title-link {
@@ -87,6 +100,7 @@ table tr td {
 .post-meta {
   font-size: 12px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .sign-in {

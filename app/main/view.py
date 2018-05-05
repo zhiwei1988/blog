@@ -83,6 +83,7 @@ def modify_blog(id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
+        post.summary = form.summary.data
         category = Category.query.filter_by(name=form.category.data).first()
         if not category:
             category = Category(name=form.category.data)

@@ -28,6 +28,9 @@
 				</a>
 			</div>
 			{% endif %}
+			<div class="post-body">
+				<p>{{ post.summary }}</p>
+			</div>
 		</article>
 		{% endfor %} {% if current_user.is_authenticated %}
 		<a id="new-post" href="{{ url_for('main.edit_blog') }}" class="btn btn-primary" role="button">New Post</a>
