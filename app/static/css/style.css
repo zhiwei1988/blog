@@ -14,7 +14,7 @@ h4, h5, h6 {
   font-size: 14px;
 }
 
-blockquote q {
+blockquote p {
   font-size: 14px;
 }
 
@@ -76,6 +76,10 @@ table tr td {
   text-align: center;
 }
 
+.post-detail .post-title {
+  text-align: center;
+}
+
 .post-title-link {
   color: #555;
 }
@@ -100,10 +104,6 @@ table tr td {
 
   h4, h5, h6 {
     font-size: 18px;
-  }
-
-  .post-title {
-    font-size: 26px;
   }
 
   .navbar > .container .navbar-brand {
