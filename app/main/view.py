@@ -4,7 +4,7 @@ from flask import render_template, redirect, url_for
 from flask_login import login_required
 from .forms import PostForm
 from . import main
-from ..models import Post, Category
+from ..models import Post, Category, Tag
 from .. import db
 from markdown import markdown
 from markdown.extensions.fenced_code import FencedCodeExtension
@@ -69,6 +69,7 @@ def edit_blog():
             db.session.add(category)
             db.session.commit()
         post.category = category
+        add_tags(form.tags.data, post)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('.index'))
@@ -90,6 +91,7 @@ def modify_blog(id):
             db.session.add(category)
             db.session.commit()
         post.category = category
+        add_tags(form.tags.data, post)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('.index'))
@@ -97,8 +99,33 @@ def modify_blog(id):
     form.title.data = post.title
     form.category.data = post.category.name
     form.summary.data = post.summary
+    show_tags(post.tags, form)
     return render_template('modify.html', form=form, id=id)
 
+
+def add_tags(tag_string, post):
+    tag_names = tag_string.split(',')
+
+    # 清空原有tags
+    for tag in post.tags:
+        post.tags.remove(tag)
+
+    for tag_name in tag_names:
+        tag = Tag.query.filter_by(name=tag_name).first()
+        if tag is None:
+            tag = Tag(name=tag_name)
+            db.session.add(tag)
+            db.session.commit()
+            post.tags.append(tag)
+        post.tags.append(tag)
+
+
+def show_tags(tags, form):
+    form.tags.data = ''
+    for tag in tags:
+        form.tags.data += tag.name
+        form.tags.data += ","
+    form.tags.data = form.tags.data[:-1]
 
 @main.route('/delete/<int:id>')
 @login_required

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from flask_script import Manager, Shell
-from app.models import User, Post
+from app.models import User, Post, Tag
 from flask_migrate import Migrate, MigrateCommand
 from gunicorn_server import Gunicorn
 import multiprocessing
@@ -12,7 +12,7 @@ migrate = Migrate(blog_server, db)
 manager = Manager(blog_server)
 
 def make_shell_context():
-    return dict(app=blog_server, db=db, user=User, post=Post)
+    return dict(app=blog_server, db=db, user=User, post=Post, tag=Tag)
 
 # 为shell命令添加上下文
 manager.add_command("shell", Shell(make_context=make_shell_context))
