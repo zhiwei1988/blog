@@ -11,6 +11,13 @@
     <article class="col-md-9">
       <header class="post-header">
         <h2 class="post-title">{{ article.title }}</h2>
+        <div class="post-meta post-tags">
+          {% for tag in article.tags %}
+          <span class="label label-info">
+            <a href="#" ref="tag">{{ '# ' + tag.name }}</a>
+          </span>
+          {% endfor %}
+        </div>
       </header>
       <div id="post-body">
         <p>{{ article.summary }}</p>
