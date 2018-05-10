@@ -129,6 +129,10 @@ table tr td {
   text-decoration: none;
 }
 
+.blog-footer p {
+  margin: auto 0;
+}
+
 @media (min-width: 992px) {
   h2 {
     font-size: 22px;
