@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from flask_login import LoginManager
 from config import config
+import logging
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -31,5 +32,7 @@ def create_app():
     from auth import auth as auth_blueprint
     app.register_blueprint(main_blueprint)
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
+
+    logging.basicConfig(filename='info.log', level=logging.INFO)
 
     return app
