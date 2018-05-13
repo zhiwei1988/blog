@@ -7,7 +7,6 @@
 {{ super() }}
 <div class="container" id="edit-page-content">
 	<form role="form" action="{{ url_for('main.modify_blog', id=id) }}" method="post">
-		{{ form.hidden_tag() }}
 		<div class="form-group form-input">
 			<label for="input-title" class="control-label">Title:</label>
 			<div>

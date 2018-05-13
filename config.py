@@ -14,6 +14,9 @@ class Config(object):
     # 默认值为True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # 禁用 CSRF 保护
+    WTF_CSRF_ENABLED = False
+
     @staticmethod
     def init_app(app):
         pass
